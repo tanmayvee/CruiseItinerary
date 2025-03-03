@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUISE STOP OVERS</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #003d33, #005c4d);
+            color: #f4f4f4;
+        }
+
+        nav {
+            background-color: #004d40;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: left;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #80cbc4;
+        }
+
+        .hero {
+            position: relative;
+            margin-top: 0px;
+            background: url('https://i.ibb.co/DV9F6D4/462578054-1065287585322762-3337887453607209418-n.jpg');
+            background-size: 100%;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            padding: 10vh 5vw;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .day-header {
+            background-color: #00796b;
+            color: white;
+            padding: 1rem;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            transition: background 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .day-header:hover {
+            background: #004d40;
+            transform: scale(1.03);
+        }
+
+        .place-list {
+            display: none;
+            margin: 1rem 0 2rem 1rem;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .place-list li {
+            margin-bottom: 1.5rem;
+            background: #004d40;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .place-list img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #00251a;
+            color: #80cbc4;
+            margin-top: 2rem;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            nav a {
+                font-size: 1em;
+                margin: 5px 10px;
+            }
+
+            .day-header {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            nav a {
+                margin: 5px 0;
+                font-size: 1em;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            .day-header {
+                font-size: 1.2rem;
+            }
+        }
+        .menu-items {
+             align-items: left;   
+            }
+        .menu ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content:center;
+        }
+
+        .menu ul li {
+            list-style: none;
+            margin: 5px;
+        }
+
+        .menu ul li a {
+            display: inline-block;;
+            font-size: 12px;
+            background-color:#005c4d;
+            padding: 20px;
+            border-radius: 50px;
+            transition: background-color 0.3s;
+        }
+
+        .menu ul li a:hover {
+            color: #00251a;
+            background-color: #80cbc4;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="menu-container">
+            <div class="hamburger-icon" onclick="toggleMenu()">☰</div>
+            <div class="menu" id="menu">
+                <ul>
+                    <li><a href="#day1">Day 1</a></li>
+                    <li><a href="#day2">Day 2</a></li>
+                    <li><a href="#day3">Day 3</a></li>
+                    <li><a href="#day4">Day 4</a></li>
+                    <li><a href="#day5">Day 5</a></li>
+                    <li><a href="#day6">Day 6</a></li>
+                    <li><a href="#day7">Day 7</a></li>
+                    <li><a href="#day8">Day 8</a></li>
+                    <li><a href="#day9">Day 9</a></li>
+                    <li><a href="#day10">Day 10</a></li>
+                    <li><a href="#day11">Day 11</a></li>
+                    <li><a href="#day12">Day 12</a></li>
+                    <li><a href="#day13">Day 13</a></li>
+                    <li><a href="#day14">Day 14</a></li>
+                    <li><a href="#day15">Day 15</a></li>
+                    <li><a href="#day16">Day 16</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
+    <div class="hero">
+        <h1>CRUISE STOP OVERS</h1>
+        <p>Where the journey is long, but the patience is always shorter.</p>
+    </div>
+
+    <div class="content">
+        <!-- Example Days -->
+        <div id="day1">
+            <div class="day-header">Day 1: Hong Kong</div>
+            <ul class="place-list">
+                <li>
+                    <p>Return to port by 6:30 PM</p>
+                    <h2>★ Manila to Hong Kong</h2>
+                    <p>Booking No.: PCP5UA</p>
+                    <p>Departure: Tuesday, December 10, 2024</p>
+                    <p>Time: 8:35 AM MNL and Arrive at HKG at 10:55 AM</p>
+                    <p>2 Hours and 20 Minutes</p>
+                    <p>enter links for tix here</p>
+                </li>
+
+                <li>★ Kai Tak MTR Statione</li>
+                <p>1:00 PM to 1:30 PM:</p>
+                <p>10 minutes walk to Kai Tak MTR Station</p>
+                <p>15 minutes: Take the <mark>Tuen Ma Line</mark> to <mark>Tsim Sha Tsui Station</mark></p>
+
+
+                <li>★ Tsim Sha Tsui Promenade</li>
+                <p>1:30 PM to 2:30 PM:</p>
+                <p>Stroll along Victoria Harour and visit the Avenue of <mark>Stars for Skyline</mark> view</p>
+                <p>Optional: quick lunch nearby at mak's Noodle or Tim Ho Wan (both accessible via MTR or short walk) </p>
+
+
+                <li>★ Star Ferry Ride</li>
+                <p>2:30 - 3:00 PM: 10 Minutes Ride from Tsim Sha Tsui to Central</p>
+                <p>Begin with a short, scenic ferry ride across Victoria Harbour on the iconic Star Ferry, offering</p>
+                    beautiful views of the city skyline</p>
+                <p>Fun Fact: Did you know the Star Ferry in Hong Kong has been around since 1888? That's over 130 years
+                    of taking people across the harbor! Imagine how many pairs of shoes those ferries have carried and
+                    probably a few grumpy passengers too! These little boats started out to help people get from one
+                    side of the city to the other, but even today, they’re still the best way to enjoy Hong Kong’s
+                    stunning skyline. So, while everyone else is stuck in traffic, you can sit back, relax, and take a
+                    scenic boat ride like it’s still the 19th century – minus the horse-drawn carriages, of course!</p>
+<!--here-->
+                <li>★ The Peak Tram</li>
+                <p>Next, take the Peak Tram – it’s a steep ride, but don’t worry, it won’t make your knees wobble!
+                    You’ll zip up to Victoria Peak for panoramic views that’ll make you feel on top of the world
+                    (literally)!</p>
+                <p>Fun Fact: The Peak Tram is one of the steepest funicular railways in the world, climbing up to
+                    Victoria Peak at an angle of 27 degrees! It’s been hauling passengers since 1888, just like the Star
+                    Ferry. (Apparently, 1888 was a big year for Hong Kong transport!)</p>
+
+                <li>★ Maxim's Palace</li>
+                <p>Next stop: Maxim’s Palace for dim sum! It’s like a food parade – the carts roll by, and you just grab
+                    whatever looks delicious. It’s the best kind of decision-making—no wrong answers, just tasty bites!
+                </p>
+                <p>Fun Fact: Maxim’s Palace is famous for its dim sum served from rolling carts. It’s not just
+                    delicious—it's a Hong Kong tradition! Fun fact: Maxim's has been serving dim sum for over 50 years
+                    and is one of the most famous dim sum spots in the city.</p>
+
+                <li>★ HK Space Museum</li>
+                <p>Next, head to the Hong Kong Space Museum! You’ll see huge models of planets, stars, and even a moon
+                    rock. It’s like a little trip to space, without needing a spacesuit!</p>
+                <p>Fun Fact: The Hong Kong Space Museum has a giant, 20-meter-wide planetarium dome—one of the biggest
+                    in Asia! Fun fact: The museum’s exhibit about space travel includes a real moon rock brought back
+                    from one of NASA’s Apollo missions.</p>
+
+
+            </ul>
+        </div>
+        <div id="day2">
+            <div class="day-header">Day 2: Hong Kong</div>
+            <ul class="place-list">
+               
+                <p>9:00 AM Disembark from the cruise ship at Kai Tak Cruise Terminal, return to port by 1:00 PM</p>
+
+                <li>★ Ngong Ping 360 Cable Car and Big Buddha</li>
+                        <p>9:15 AM to 9:45 AM Walk to MTR Station and take the Tuen Ma Line to Nam Cheong</p>
+                        <p>9:45 AM to 10:00 AM Walk to the Ngong Ping 360 Cable Car Terminal</p>
+                        <p>10:00 AM to 11:15 AM Ride the Ngong Ping 360 Cable Car for panoramic views for 25 minutes</p>
+                        <p>Visit the Big Buddha, Po Lin Monastery and explore Ngong Ping Vollage</p>
+                        <p>11:15 AM to 11:45 AM Take the cable car back to Tung Chung Station</p>
+                        <p>Take the Ngong Ping 360 Cable Car up to see the Big Buddha! The ride itself is an adventure—swooping high above lush mountains and offering stunning views of Lantau Island. At the top, you’ll be face-to-face with the Big Buddha, one of the world’s largest outdoor bronze statues!</p>
+                        <p>Fun Fact: The Ngong Ping 360 Cable Car offers one of the best aerial views in Hong Kong, and the ride takes you 5.7 kilometers (about 3.5 miles) to the top! As for the Big Buddha, it’s 34 meters tall—imagine looking up at something as tall as a 10-story building... and it's made of bronze!</p>
+
+                <li>★ Return to Cruise Terminal</li>
+                <p>11:45 AM to 12:30 PM Take the Tung Chung Line and transfer to the Tuen Ma Line back to Kai Tak MTR Station for 45 minutes</p>
+                <p>12:30 PM to 12:50 PM Walk from the MTR station to the Kai Tak Cruise Terminal</p>
+                <p>1:00 PM Arrive back at the cruise terminal</p>
+
+                <li>★ Optional Afternoon Activities</li>
+                <pre>Tai Wo Tang Cafe</pre>
+                <p>Take the MTR to Tai Wo Tang Cafe - 20 minutes from Central. Enjoy quick coffee or meal in this modern yet historically inspired setting</p>
+                <pre>Ding Ding Tram Ride</pre>
+                <p>Enjoy a leisurely ride on the Ding Ding Tram along Hong kong Island, soaking in the unique city vibe</p>
+                <p>board from various stops including Central or Caseway Bay and hop off at landmarks of interest</p>
+            </ul>
+
+     <div id="day4">
+         <div class="day-header">Day 4: Coron</div>
+            <ul class="place-list">
+                    
+            <p>10:00 AM: Disembark from the cruise ship at Coron port</p>
+
+             <li>★ Parasailing at Royal Island Watersports<br><img src="https://i.ibb.co/s1cvLg4/parasail.png" alt="parasail" border="0"></li>
+
+                    <p>10:10 AM to 10:30 AM Take a short 10 minutes boat ride to Royal Island Watersports Center</p>
+                    <p>10:30 AM to 11:30 AM Experience parasailing, enjoying stunning aerial views of Coron's islands and turquoise waters </p>
+                    <p>11:30 AM to 11:45 AM Return to the port by boat</p>
+                    <p><p>Fun Fact: Coron is known for its dramatic scenery, and parasailing gives you the best seat in the house. From up there, you can spot coral reefs, lagoons, and maybe even a few friendly fish swimming beneath you! Plus, it’s one of the most thrilling ways to enjoy the beauty of the Philippines—without needing to dive into the water!</p>
+                        </p>
+
+                    
+            <li>★ Lunch Option: Nearby Local Favorites<br><img src="https://i.ibb.co/Ypvm531/lolo-nonoy.png" alt="lolo-nonoy" border="0"></li>
+                <p>11:45 AM to 12:30 PM Enjoy lunch at one of these retaurants:</p>
+                <p>Cafe Edge: Casual Cafe for light meal or drinks</p>
+                <p>Lolo Nonoy's Food Station: Traditional filipino comfort food</p>
+                <p>Coron Galley: Laid back dining with hearty dishes</p>
+
+            <li>★ Afternoon Activities<br><img src="https://i.ibb.co/ZWGNBsJ/kayangan.png" alt="kayangan" border="0"></li>
+                <h3>Option 1: Kayangan Lake</h3>
+                <p>12:30 PM to 12:50 PM Take a 20 minutes to Kayangan Lake</p>
+                <p>12:50 to 2:30 PM Explore the lake, hike to the iconic viewpoint and swim in crystal clear waters</p>
+                <p>1:40 PM to 2:00 PM Return to the port by boat</p>
+                
+                <h3>Option 2: Maquinit Hot Springs</h3>
+                <p>12:30 PM to 12:50 PM Take a 20 minutes tricycle to Maquinit Hot Springs</p>
+                <p>12:50 PM to 2:30 PM Relax in the warm, natural saltwater pools, surrounded by scenic mangroves</p>
+                <p>1:40 PM to 2:00 PM Return to the port by tricycle</p>
+
+            <li>★ Relax at Lualhati Park<br><img src="https://i.ibb.co/qWvKjNd/lualhati.png" alt="lualhati" border="0"></li>
+                <p>2:30 PM to 3:00 PM Walk 10 minutes to Lualhati Park</p>
+                <p>Fun Fact: Lualhati Park is named after the Filipino word “lualhati,” which means "peace" or "serenity." It’s the perfect place to chill out and soak in the natural beauty of Coron, and it’s a favorite hangout for locals looking for a quiet moment by the sea!</p>
+
+                
+            <li>★ Return to Cruise Ship<br><img src="https://i.ibb.co/g605RSG/boat.png" alt="boat" border="0"></li>
+                <p>3:00 PM to 4:00 PM Head back to Coron port to ensure you're ready for departure</p>
+    
+            </ul>
+
+    <div id="day5">
+        <div class="day-header">Day 5: Puerto Princesa</div>
+        <ul class="place-list">
+                           
+            <p>10:00 AM Disembarkation</p>
+       
+            <li>★ Eightynine Cafe<br><img src="https://i.ibb.co/NFfjV48/Puerto-Princesa-Eightynine-Cafe.png" alt="Puerto-Princesa-Eightynine-Cafe" border="0"></li>
+       
+            <p>10:00 AM to 10:30 AM Start the day with brunch at Eightynine Cafe, known for its excellent coffee and brunch offerings</p>
+            <p>Fun Fact: Eightynine Café is named after the year it was established—1989! It’s a local favorite, known for its cozy atmosphere and friendly service. If you’re lucky, you might even get a taste of their homemade pastries, which are the real crowd-pleasers!</p>
+
+            <li>★ Palawan Heritage Center<br><img src="https://i.ibb.co/VCNJyDP/palawanheritage.png" alt="palawanheritage" border="0"></li>
+
+                <p>10:30 AM to 11:00 AM The museum showcases everything from ancient artifacts to traditional crafts, giving you a deeper understanding of the island’s fascinating past.</p>
+                <p>Fun Fact: The Palawan Heritage Center is housed in a building that was originally the old town hall, and it’s packed with exhibits about the indigenous cultures of Palawan. You can even see ancient burial jars and tools that date back thousands of years—talk about a history lesson you can really touch!</p>
+                
+            <li>★ Mitra's Ranch<br><img src="https://i.ibb.co/1ZbVjmV/mitraranch.png" alt="mitraranch" border="0"></li>
+
+                <p>11:00 AM to 11:40 AM Head over to Mitra’s Ranch in Puerto Princesa for some amazing views and a bit of fresh air. This family-owned ranch offers a peaceful escape with a panoramic view of the surrounding countryside and the beautiful bay.</p>
+                <p>Fun Fact: Mitra’s Ranch is named after the Mitra family, one of the prominent families in Palawan. The best part? It's free to visit! You can take a walk around the ranch, snap some photos, and enjoy the cool breeze—like you’re on top of the world, without the price tag of a fancy resort!</p>
+                <p>walk</p>
+
+            <li>★ Itoy's Coffee Shop<br><img src="https://i.ibb.co/7VWLgYn/itoy-s.png" alt="itoy-s" border="0"></li>
+                <p>11:40 AM to 12:10 PM Food LOL</p>
+                <p>walk</p>
+
+            <li>★ Baker's Hill (Optional)<br><img src="https://i.ibb.co/tQ3hkmb/Puerto-Princesa-Baker-s-Hill.png" alt="Puerto-Princesa-Baker-s-Hill" border="0"></li>
+                <p>12:10 PM to 12:30 PM Alright, now it’s time to hit up Baker’s Hill in Puerto Princesa—where carbs and cool vibes come together! This place is part bakery, part theme park, with giant statues, gardens, and even a mini zoo. You’ll get lost in the charm and, probably, in a pile of fresh hopia (a sweet Filipino pastry that’s too good to resist).</p>
+                <p>Fun fact: Baker’s Hill started in the 1990s when the owners just wanted to bake a few goodies for their friends. Now, it's a full-blown attraction with a giant baker statue (no, he won’t bake for you, but he sure looks friendly). Plus, they’ve got a little zoo with animals like peacocks and rabbits. Talk about mixing food with fun!</p>
+                <p>Jeep/Tricycle</p>
+            
+            <li>★ Robinsons Place Puerto Princesa (Optional)<br><img src="https://i.ibb.co/stv7XFG/Puerto-Princesa-Robinson-s-Place.png" alt="Puerto-Princesa-Robinson-s-Place" border="0"></li>
+
+                <p>12:30 PM to 1:00 PM Shopping</p>
+                <p>15 mins Jeep from Baker's Hill</p>
+
+            <li>★ Puerto Princesa City Baywalk Park<br><img src="https://i.ibb.co/4jdTgK7/Puerto-Princesa-Baywalk-Park.png" alt="Puerto-Princesa-Baywalk-Park" border="0"></li>
+                    
+                <p>1:00 PM to 2:00 PM Next, take a relaxing stroll along Puerto Princesa City Baywalk Park—a beautiful promenade by the sea where you can enjoy the fresh air, watch the sunset, and maybe even catch a glimpse of some local wildlife.</p>
+                <p>Fun fact: The Baywalk was developed to give locals and visitors a peaceful place to unwind by the water, and it’s a favorite spot for evening strolls. At night, the park lights up with colorful displays, making it a perfect spot for photos or a casual evening out. Plus, you might even spot a few of the famous puerto squirrels running around!</p>
+                <p>jeep</p>
+
+            <li>★ Travel from Baywalk Park to Port<br><img src="https://i.ibb.co/g605RSG/boat.png" alt="boat" border="0"></li>
+                
+                <p>2:00 PM to 2:20 PM jeep or tricycle to port</p>
+        </ul>
+
+    <div id="day6">
+        <div class="day-header">Day 6: Boracay</div>
+        <ul class="place-list"> 
+
+            <p>11:00 AM Disembarkation, return by 4 PM</p>
+            <p>Reminder: WEAR SUNSCREEN, Bring Water!</p>
+
+            <li>★ Jetskiing at Bulabog Beach<br><img src="https://i.ibb.co/Q699ssG/Boracay-Bulabog-Beach.png" alt="Boracay-Bulabog-Beach" border="0"></li>
+
+                <p>Let's go Uncle Paul! yay! </p>
+                <p>11:10 AM to 11:25 AM short transfer to Bulabog Beach</p>
+                <p>11:25 AM to 12:05 PM JetsKII</p>
+
+            <li>★ Crystal Boat Tour<br><img src="https://i.ibb.co/WBG0GwM/Boracay-Crystal-Boat-Tour.png" alt="Boracay-Crystal-Boat-Tour" border="0"></li>
+
+                <p>12:10 PM to 12:25 PM Head to Crystal Boat Tour</p>
+                <p>12:25 PM to 1:15 PM Take the boat ride</p>
+
+            <li>★ Lunch at The Pig Out Bistro<br><img src="https://i.ibb.co/61q5v15/Boracay-The-Pig-Out-Bistro.png" alt="Boracay-The-Pig-Out-Bistro" border="0"></li>
+
+                <p>1:20 PM to 2:00 PM </p>
+                <p>This place is a meat lover’s paradise, serving up deliciously juicy burgers, sizzling steaks, and tasty BBQ dishes that will have you going ‘Oink!’ in delight.</p>
+                <p>Fun fact: The Pig Out Bistro is known for its ‘Pig Out Platter,’ a feast fit for a hungry group (or anyone who really loves pork). And the best part? The bistro’s outdoor seating lets you enjoy your meal with a view of the beach, so you can indulge in some serious comfort food while listening to the sound of the waves!</p>
+
+            <li>★ D'Mall & Beach Bars<br><img src="https://i.ibb.co/Xt2ZJwy/Boracay-D-Mall.png" alt="Boracay-D-Mall" border="0"></li>
+
+                <p>2:05 PM to 2:45 PM Now, it’s time to explore D'Mall and the famous beach bars in Boracay! D'Mall is a vibrant outdoor shopping hub with everything from local crafts to cool beachwear, and just a few steps away, you'll find the beach bars—perfect for kicking back with a cocktail while you watch the sunset.</p>
+                <p>Fun fact: D'Mall is the heart of Boracay’s shopping scene, but did you know it was once just a small strip of stalls? Now, it's a bustling area where you can shop, eat, and even spot live music performances. As for the beach bars, they’re perfect for sipping a cold drink while enjoying some of the best sunsets in the world—just don't be surprised if you end up staying for a second (or third) round!</p>
+
+            <li>★ Visit Our Lady of the Most Holy Rosary Parish<br><img src="https://i.ibb.co/Mpw1xTN/holy-rosary.png" alt="holy-rosary" border="0"></li>
+
+                <p>2:50 PM to 3:10 PM Take a 15 mins walk</p>
+                <p>Fun fact: This church is a hidden gem on the island and is dedicated to Our Lady of the Most Holy Rosary, the patroness of Boracay. It’s one of the few places on the island where you can experience both a peaceful, spiritual atmosphere and the unique island vibe. So, if you’re looking for a little serenity, this is the place to go</p>
+
+            <li>★ ATV Adventure<br><img src="https://i.ibb.co/N2WfMz3/Boracay-ATV-Adventures.png" alt="Boracay-ATV-Adventures" border="0"></li>
+
+                <p>3:15 PM to 4:00 PM </p>
+                <p>Fun fact: The ATV trails take you through some of the island’s most hidden spots, like lush forests, remote beaches, and even up to the famous Mount Luho, where you can get a panoramic view of Boracay. You’ll feel like a true adventurer—and you won’t even need a helmet for your imagination! (Well, you do need the actual helmet for safety, of course.)</p>
+
+            <li>★ Return to Cruise Ship<br><img src="https://i.ibb.co/g605RSG/boat.png" alt="boat" border="0"></li>
+
+                <p>4:00 PM Head back t port for cruise</p>
+  
+        </ul>
+    
+    <div id="day8">
+        <div class="day-header">Day 8: Kaohsiung</div>
+        <ul class="place-list">
+
+            <p>11:00 AM Disembarkation, return by 5:45 PM</p>
+
+         <li>★ Breakfast at Liuhe Night Market<br><img src="https://i.ibb.co/1f54yjm/Kaohsiung-Liuhe-Night-Market.png" alt="Kaohsiung-Liuhe-Night-Market" border="0"></li>
+
+            <p>11:30 AM to 12:15 PM Head to Liuhe Night Market in Kaohsiung for a feast of flavors and a lively atmosphere! This bustling market is famous for its wide variety of street food, from stinky tofu (don’t be scared, it’s delicious!) to fresh seafood and sweet treats.</p>
+            <p>Fun fact: Liuhe Night Market has been around since the 1950s, and it’s not just a place to eat—it’s an experience. The market's vibrant neon lights and the constant buzz of vendors and customers make it feel like a mini celebration all night long. And if you're feeling adventurous, you can even try a bubble tea served in a pineapple!</p>
+            <p>Walk from port - 20 mins</p>
+
+        <li>★ Dragon and Tiger Pagodas<br><img src="https://i.ibb.co/TwVWPj5/Kaohsiung-Dragon-and-tiger-pagodas.png" alt="Kaohsiung-Dragon-and-tiger-pagodas" border="0"></li>
+            
+            <p>12:30 PM to 1:45 PM</p>
+            <p>Visit the Dragon and Tiger Pagodas in Kaohsiung for a fun, mystical experience! These twin pagodas are famous for their unique design and the belief that walking through the dragon’s mouth and out the tiger’s tail will bring good luck and drive away evil.</p>
+            <p>Fun fact: The Dragon and Tiger Pagodas are located in the Lotus Pond, which is dotted with statues and pavilions. The best part? As you walk through the dragon's mouth, you’re supposed to make a wish, and when you exit through the tiger’s tail, you leave your bad luck behind. Talk about a lucky stroll!</p>
+            <p>Take the Kaohsiung MRT: From Port Station (Houyi Station) to Zuoying Station for 20 mins</p>
+            <p>Walk to the pagodas from Zuoying MRT Station for 5 mins</p>
+
+        <li>★ Lunch at Niulaoda Shabu Shabu Beef Hotpot<br><img src="https://i.ibb.co/SXLHjtK/Kaohsiung-niulaoda-shabu-shabu-beef-hotpot.png" alt="Kaohsiung-niulaoda-shabu-shabu-beef-hotpot" border="0"></li>
+
+            <p>2:00 PM to 3:15 PM </p>
+            <p>Craving a hot, tasty meal? Head to Niulaoda Shabu Shabu Beef Hotpot for an unforgettable feast! Dive into a steaming pot of fresh, tender beef and veggies, and cook everything to perfection right at your table.</p>
+            <p>Fun fact: Niulaoda is famous for its premium cuts of beef and flavorful broth that’ll have you coming back for seconds (or thirds!). Plus, their hotpot is served with all the fixings, so you can mix and match ingredients to create your own perfect bite. It’s like being your own chef—and who doesn’t love that?</p>
+
+        <li>★ Qijin Island<br><img src="https://i.ibb.co/VWtQbsR/Kaohsiung-Qijin-Island.png" alt="Kaohsiung-Qijin-Island" border="0"></li>
+
+            <p>3:30 PM to 4:30 PM</p>
+            <p>Take a short ferry ride over to Cijin Island, a peaceful escape from the hustle and bustle of Kaohsiung. This little island is famous for its seafood, charming beaches, and the stunning Cijin Lighthouse.</p>
+            <p>Fun fact: Cijin Island is home to Kaohsiung's oldest lighthouse, built in 1883, and it’s one of the best spots to catch a panoramic view of the harbor. The island is also known for its "seafood street"—where you can feast on fresh fish, squid, and shrimp, all while enjoying the sea breeze. It’s like a mini paradise just a boat ride away!</p>
+            <pre>Transportation:
+                - Take the Kaohsiung MRT to City Counsil Station for 10 mins
+                - Walk to the ferry terminal for 5 mins
+                - Ferry Ride to Qijin Island for 5 to 10 mins
+            </pre>
+
+        <li>★ Yancheng District<br><img src="https://i.ibb.co/QmPwjkX/Kaohsiung-Yancheng-District.png" alt="Kaohsiung-Yancheng-District" border="0"></li>
+
+            <p>4:45 PM to 5:30 PM</p>
+            <p>Explore Yancheng District in Kaohsiung for a mix of history, culture, and modern charm! This area is known for its old-school architecture, hip cafes, and proximity to the waterfront, making it perfect for a leisurely day of exploring.</p>
+            <p>Fun fact: Yancheng was once the heart of Kaohsiung’s port activities and has since transformed into a trendy area with art galleries, street murals, and cool eateries. It’s also home to the Kaohsiung Maritime Cultural & Popular Music Center, where you can dive into the city’s maritime history. Talk about a blend of old and new!</p>
+
+        <li>★ Embarkation Process<br><img src="https://i.ibb.co/g605RSG/boat.png" alt="boat" border="0"></li>
+
+            <p>Head back to port for embarkation, Aim to arrive by 6 PM </p>
+            <p>Walk from Yancheng District to the port for 10 to 15 mins</p>
+
+        </ul>
+
+    <div id="day9">
+        <div class="day-header">Day 9: Taichung</div>
+        <ul class="place-list">
+
+        <p>9:00 AM Disembarkation, return by 12:00 PM</p>
+
+        <li>★ Miyahara<br><img src="https://i.ibb.co/VYPmsyx/Taichung-miyahara.png" alt="Taichung-miyahara" border="0"></li>
+
+            <p>9:00 AM to 9:45 AM</p>
+            <p>Taichung for a sweet treat and a step back in time! This stunning building, once an eye hospital, has been transformed into a gorgeous dessert haven, famous for its ice cream, chocolates, and stunning interior</p>
+            <p>Fun fact: Miyahara is not just a place for delicious desserts—it's also a visual feast. The inside is filled with vintage furniture, old-school wooden shelves, and even antique eye charts. The best part? The ice cream flavors come in fun and unique combos, like Earl Grey tea and red bean, making it the perfect spot for both your eyes and taste buds to be delighted!</p>
+            <p>45 mins transit from port to Miyahara</p>
+        
+        <li>★ Taichung Park<br><img src="https://i.ibb.co/qrRcPFq/Taichung-Park.png" alt="Taichung-Park" border="0"></li>
+
+            <p>9:50 AM to 10:20 AM</p>
+            <p>This green oasis is perfect for a peaceful walk around the lake, or just chilling under the shade of old trees.</p>
+            <p>Fun fact: Taichung Park was established in 1903 during the Japanese colonial period, and it features a beautiful pagoda and a man-made lake with paddleboats. The park is also a popular spot for locals to enjoy tai chi or feed the ducks, making it a serene escape right in the heart of the city!</p>
+            <p>Walk for 10 mins to get here </p>
+
+        <li>★ National Taichung Theater<br><img src="https://i.ibb.co/FX32fr6/Taichung-Taichung-theater.png" alt="Taichung-Taichung-theater" border="0"></li>
+
+            <p>10:30 AM to 11:00 AM</p>
+            <p>A stunning architectural masterpiece that looks like something straight out of a futuristic movie! Designed by famous architect Toyo Ito, this building’s curvy, organic shape is as impressive as the performances inside.</p>
+            <p>Fun fact: The National Taichung Theater is known for its unique design—its interior features "sound caves" and "echo chambers" that were specifically built to enhance acoustics for every performance. Whether you're catching a play, concert, or just admiring the architecture, it's a true gem of Taichung!</p>
+            <p>15 mins walk from Taichung Park</p>
+
+        <li>★ Return to the Ship<br><img src="https://i.ibb.co/g605RSG/boat.png" alt="boat" border="0"></li>
+
+            <p>Return by 12:00 PM</p>
+            <p>45 mins transit back</p>
+
+        </ul>
+
+    <div id="day10">
+        <div class="day-header">Day 10: Miyakojima</div>
+        <ul class="place-list">
+    
+        <p>12:00 PM Disembarkation, return by 5:30 PM</p>
+        <p>EAT AT THE CRUISE</p>
+    
+        <li>★ Sunayama Beach<br><img src="https://i.ibb.co/wSfFpw0/Miyakojima-sunayama-beach.png" alt="Miyakojima-sunayama-beach" border="0"></li>
+
+            <p>12:00 PM to 3:00 PM</p>
+            <p>Relax at Sunayama Beach, one of the most beautiful hidden gems on Miyako Island. With its powdery white sand, turquoise waters, and iconic rocky arch, it's the perfect spot to kick back and soak up the island vibes.</p>
+            <p>Fun fact: Sunayama Beach is famous for its dramatic natural arch, which was carved by the wind and sea. Legend has it that walking through the arch brings good luck, so take a moment to snap a pic and make a wish while you're there!</p>
+
+        <li>★ Yonaha Maehama Beach<br><img src="https://i.ibb.co/VHSKX0Z/Miyakojima-Yonaha-Maehama-Beach.png" alt="Miyakojima-Yonaha-Maehama-Beach" border="0"></li>
+        
+            <p>3:00 PM to 3:45 PM</p>
+            <p>Chill out at Yonaha Maehama Beach, one of Okinawa's most beautiful and longest beaches, with crystal-clear waters and soft, white sand stretching for nearly 7 kilometers. It’s the perfect spot for swimming, sunbathing, or just taking in the stunning view</p>
+            <p>Fun fact: Yonaha Maehama Beach is often called the "emerald beach" because of its vibrant, clear waters that seem to glow in every shade of blue. It's also a favorite for water sports, so whether you're into snorkeling, jet skiing, or just floating on a raft, there's plenty of fun to be had!</p>
+
+        <li>★ Return to port<br><img src="https://i.ibb.co/g605RSG/boat.png" alt="boat" border="0"></li>
+
+            <p>Get there by 5:30 PM</p>
+
+        </ul>
+
+    <div id="day11">
+        <div class="day-header">Day 11: Naha</div>
+        <ul class="place-list">
+
+        <p>Disembarakation at 9:00 AM, return by 4:30 PM</p>
+
+        <li>★ Yukata Rental Shop<br><img src="https://i.ibb.co/rkVVkQK/Naha-yukata-rental-shop.png" alt="Naha-yukata-rental-shop" border="0"></li>
+
+            <p>9:00 AM to 10:00 AM</p>
+            <p>Upon disembarkation, walk or take public transport (about 10 minutes) to the yukata rental shop:</p>
+            <p>1 Chome-6-1 Kumoji, Naha-shi, Okinawa-ken 900-0015, Japan.</p>
+            <p>Check in and browse the selection of yukata or kimono styles.</p>
+        
+        <li>★ Explore Shurijo Castle Park<br><img src="https://i.ibb.co/WkvFkVJ/Naha-shurijo-castle-park.png" alt="Naha-shurijo-castle-park" border="0"></li>
+
+            <p>10:00 AM to 11:30 AM</p>
+            <p>Take Mororail to Shuri Station for 20 minutes</p>
+            <p>Go to Shureimon Gate and Gardens</p>
+            <p>Shurijo Castle is a majestic piece of Okinawan history, with its bright red walls and traditional Ryukyu architecture. Visitors can explore the grand main hall, beautiful gardens, and stunning panoramic views of Naha from the castle’s grounds. It’s a glimpse into the Ryukyu Kingdom’s past, complete with royal relics and exhibits.</p>
+            <p>Fun fact: Shurijo Castle was once the royal palace of the Ryukyu Kingdom—basically the Okinawan version of Buckingham Palace! Unfortunately, it was heavily damaged in WWII, but it’s been beautifully restored. So if you spot any workers fixing the place up, tell them ‘good job’—it’s kind of like a royal makeover!</p>
+
+
+        
+        <li>★ Lunch at Makishi Public Market<br><img src="https://i.ibb.co/WgdshVn/Naha-makishi-public-market.png" alt="Naha-makishi-public-market" border="0"></li>
+
+            <p>11:30 AM to 1:00 PM</p>
+            <p>Dishes like Taco Rice or Go Ya Chanpuru (Bitter melon stir fry)</p>
+            <p>Makishi Public Market is a colorful maze of fresh local produce, seafood, and meats. You’ll find everything from Okinawan vegetables like goya (bitter melon) to freshly caught fish, and even the famous Okinawan soki (pork ribs). It’s a bustling spot where you can try local delicacies or pick up unique ingredients to take home.</p>
+            <p>Fun fact: This market’s nickname is ‘Okinawa’s Kitchen,’ and it’s been serving up fresh goods since 1950! You can even get a fresh bowl of taco rice—a dish that blends Okinawan and American flavors. Just don’t be surprised if you see someone bargaining for a fish that’s still looking at you—those are the freshest ones</p>
+
+        <li>★ Fushuku-en Garden<br><img src="https://i.ibb.co/TKgTjxd/Naha-fushuku-en-garden.png" alt="Naha-fushuku-en-garden" border="0"></li>
+
+            <p>1:00 PM to 2:30 PM</p>
+            <p>Walk 10 minutes to Fushuku en Garden</p>
+            <p>Tranquil paths, Koi Ponds and photo perfect backdrops for our kimonosss yay!</p>
+            <p>A peaceful Chinese-style oasis</p>
+
+        <li>★ Naminou Shrine<br><img src="https://i.ibb.co/FD7Vt6v/Naha-naminou-shrine.png" alt="Naha-naminou-shrine" border="0"></li>
+
+            <p>2:30 PM to 3:30 PM</p>
+            <p>Walk to the port after</p>
+            <p>Naminoue Shrine, perched on a cliff above the ocean, offers a peaceful escape with stunning views of the sea. The shrine’s bright red gates and serene atmosphere make it a perfect spot for a quiet stroll or to catch your breath while admiring the ocean below. You might see locals praying for good fortune or the protection of their loved ones.</p>
+            <p>Fun fact: Naminoue Shrine is one of Okinawa’s oldest, built in the 14th century! It’s said to protect sailors—so if you see any fishing boats out there, they’re probably sending a thank-you to the gods for smooth seas. And if you’re lucky, you might even spot a local praying for a big catch… or just wishing for a good nap afterward!</p>
+
+        <li>★ Return Yukata and back to Travel Port<br><img src="https://i.ibb.co/g605RSG/boat.png" alt="boat" border="0"></li>
+
+            <p>4:00 PM to 5:00 PM</p>
+            <p>Return Kimonosand retrieve belongings</p>
+            <p>Walk back to the port for 15 mins</p>
+            <p> You can look at souvernir shops before boarding the port at 5 pm</p>
+        </ul>
+    
+    <div id="day11">
+        <div class="day-header">Day 12: Ishigaki</div>
+        <ul class="place-list">
+    
+        <p>Disembarakation at 12:00 PM, return by 5:30 PM</p>
+    
+        <li>★ Euglena Mall<br><img src="https://i.ibb.co/k5qXdRB/Ishigaki-euglena-mall.png" alt="Ishigaki-euglena-mall" border="0"></li>
+
+            <p>`12:30 PM to 1:30 PM</p>
+            <p>Try Okinawan snacks</p>
+            <p>This lively shopping area in Ishigaki, Okinawa, is filled with local shops, restaurants, and souvenirs. The mall is known for its fresh seafood, tropical fruits, and unique island products, including Ryukyu glass and handmade crafts. It’s a great place to soak in the local culture, try Okinawan delicacies, and enjoy the laid-back island atmosphere.</p>
+            <p>Fun fact: Did you know Euglena Mall’s name comes from a tiny microorganism, the Euglena? It's not just a shopping hub, it’s like a mini biology lesson too. So, if you’ve ever wondered how your body could use a little "Euglena energy," you might just find the right "healthy snack" at the mall!</p>
+
+        <li>★ Torinji Temple<br><img src="https://i.ibb.co/qDSCFdY/Ishigaki-torinji-temple.png" alt="Ishigaki-torinji-temple" border="0"></li>
+
+            <p>1:30 PM to 2:15 PM</p>
+            <p>15 mins walk to Torinji Temple</p>
+            <p>Located on Ishigaki Island, Torinji Temple is a peaceful Buddhist temple known for its serene atmosphere and unique architectural style. It’s famous for housing a large statue of the Buddha, as well as being a site for meditation and reflection. The temple’s beautiful grounds also offer stunning views of the surrounding nature, making it a perfect spot for some quiet contemplation or a peaceful walk.</p>
+            <p>Fun fact: At Torinji, the Buddha’s so calm, you might think he’s the one doing the meditating! And if you need a little zen in your life, a visit here is like hitting "pause" on the hustle and bustle—kind of like a spiritual "do not disturb" sign for your mind!</p>
+
+        <li>★ Kabira Beach<br><img src="https://i.ibb.co/d280fx9/Ishigaki-kabira-beach.png" alt="Ishigaki-kabira-beach" border="0"></li>
+            
+            <p>Travel Time: 2:15 PM to 3:30 PM</p>
+            <p>Take the bus</p>
+            <p>3:30 PM to 4:30 PM</p>
+            <p>Kabira Beach, located on Ishigaki Island in Okinawa, Japan, is famous for its breathtaking turquoise waters and white sands. It is part of the Iriomote-Ishigaki National Park and is renowned for black pearl cultivation. While swimming is prohibited due to strong currents, visitors can still enjoy the vibrant marine life through glass-bottom boat tours</p>
+            <pre>Fun Facts: 
+                - You can spy on fish through glass-bottom boats—no swimsuit required.
+                
+                - It’s a hotspot for black pearls, proving that Kabira Bay is always in style.
+                
+                - The sunsets are so gorgeous, they should have their own Instagram account.
+                
+                - Stargazing here feels like stepping into a cosmic IMAX theater.
+                
+                - It’s considered sacred, so even the fish might bow as you pass.
+                
+                - It’s been featured in Japanese media as the ultimate tropical beauty queen.</pre>
+
+        <li>★ Travel back to Ishigaki Port<br><img src="https://i.ibb.co/g605RSG/boat.png" alt="boat" border="0"></li>
+
+                <p>4:30 PM to 5:30 PM</p>
+        </ul>
+    
+    <div id="day13">
+        <div class="day-header">Day 13: Taipei (Part 1)</div>
+        <ul class="place-list">
+
+        <p>11:30 AM Disembarakation</p>
+    
+        <li>★ Ark Hotel Changan Fuxing<br><img src="https://i.ibb.co/bBdQJcY/Taipei-ark-hotel.png" alt="Taipei-ark-hotel" border="0"></li>
+
+            <p>11:30 AM to 3:00 PM</p>
+            <p>Take the MRT from Tamui Xinyl Line (Red Line) and transfer to Zhongshan Station (Green Line)</p>
+            <p>Buy a Taipei Metro EasyCard and load $300 Taiwan dollars ($15 CAD)</p>
+            <p>Short walk</p>
+            <p>$20 to $50 per person for MRT</p>
+
+        <li>★ Taipei 101 at night<br><img src="https://i.ibb.co/4ggL1Cs/Taipei-101.png"></li>
+
+            <p>3:00 PM to 3:30 PM Check in, unpack, and freshen up</p>
+            <p>4:00 PM to 5:30 PM </p>
+            <p>Visit Taipei 101</p>
+            <p>How:MRT to Taipei 101/World Trade Center Station [Red Line] (~NT$20) ($1 CAD)</p>
+            <p>Activity: Explore the mall</p>
+            <p>Optional: Go to the Observation Deck (Entry Fee: ~NT$600) ($25 CAD)</p>
+            
+            <p>Taipei 101, a 508-meter-tall skyscraper in Taiwan, was once the world’s tallest building. It’s famous for its bamboo-like design, a luxury shopping mall, and an observation deck with stunning city views.
+
+            <p>Fun Fact: Inside, there’s a giant golden ball that keeps the building steady during earthquakes and typhoons—it’s basically the building’s stress ball!</p>
+
+            <br>
+
+            <p>6:00 PM - 7:30 PM </p>
+                
+            <p>Dinner at Din Tai Fung (Taipei 101 branch)
+                Estimated Cost: NT$300–600 per person (ax $30 CAD) </p>
+                
+            <br>
+
+            <p>7:30 PM - 9:00 PM </p>
+            <p>Head to Ximending, Taipei’s vibrant shopping district.</p>
+            <p>How: MRT to Ximen Station [Blue Line] (~NT$20) ($1 CAD)</p>
+            <p>Snack Stop: Try Ay-Chung Flour-Rice Noodles for their iconic vermicelli with garlic and cilantro (~NT$60) ($3 CAD)</p>
+
+        </ul>
+    
+    <div id="day14">
+        <div class="day-header">Day 14: Taipei (Part 2)</div>
+        <ul class="place-list">
+    
+        <li>★ Fushang Soy Milk<br><img src="https://i.ibb.co/cvSCvGg/Taipei-fushang-soy-milk.png" alt="Taipei-fushang-soy-milk" border="0"></li>
+
+            <p>8:00 AM to 9:00 AM</p>
+            <p>How: MRT to Shandao Temple Station [Blue Line] (~NT$20) ($1 CAD)</p>
+            <p>Estimated Cost: NT$50–80 per person ($3 - $4 CAD)</p>
+            <p>Fuhang Soy Milk, a famous breakfast spot in Taipei, is known for its fresh soy milk and traditional Taiwanese breakfast items like thick bread with egg and fried dough sticks. Located on the second floor of Huashan Market, it’s open early and often has long lines due to its popularity.
+            <p>Fun Fact: The staff at Fuhang Soy Milk works so fast and smoothly, it’s like watching a breakfast-making dance!</p>
+           
+           
+        <li>★ National Palace Museum<br><img src="https://i.ibb.co/SxFLQZ3/Taipei-national-palace-museum.png" alt="Taipei-national-palace-museum" border="0"></li>
+
+            <p>9:30 AM to 12:30 PM</p>
+            <p>How: MRT to Shilin Station [Red Line], then take the R30 bus to the museum (~NT$20 MRT + NT$15 bus)($1 CAD) </p>
+            <p>Entry Fee: NT$350 per person (16 CAD)</p>
+            <p>The National Palace Museum in Taipei is home to nearly 700,000 artifacts, showcasing thousands of years of Chinese history and culture. Famous pieces include ancient jade carvings, bronze artifacts, and the iconic Jadeite Cabbage. It's one of the largest and most visited museums in the world</p>
+            <p>Fun Fact: The Jadeite Cabbage is so popular it’s often called the "Mona Lisa of the National Palace Museum"—except it’s green, leafy, and won’t smile back at you!</p>
+        
+        <li>★ Shi Dong Market<br><img src="https://i.ibb.co/wwjR4Mc/Taipei-shidong-market.png" alt="Taipei-shidong-market" border="0"></li>
+                
+            <p>12:30 PM to 2:00 PM</p>
+            <p>How: Short walk from the museum.</p>
+            <p>Estimated Cost: NT$150–250 per person. ($11 CAD)</p>
+
+        <li>★ Dadaocheng and Dihua Street<br><img src="https://i.ibb.co/bBtrstz/Taipei-dadaocheng.png" alt="Taipei-dadaocheng" border="0"></li>
+  
+            <p>2:30 PM to 4:30 PM</p>
+            <p>How: MRT to Daqiaotou Station [Orange Line], then walk (~NT$20 MRT). ($1)</p>
+            <p>Dadaocheng, located in Taipei's Datong District, is one of the city's oldest neighborhoods, rich in history and culture. Its main thoroughfare, Dihua Street, dates back to the 1850s and was a significant trading hub, especially for tea, during the 19th century. Today, Dihua Street is renowned for its well-preserved architecture, blending traditional Chinese, Western, and Japanese styles. The area is a vibrant mix of traditional shops selling Chinese medicine, dried goods, and fabrics, alongside modern boutiques, cafes, and art spaces. During the Lunar New Year, Dihua Street becomes a bustling market, attracting locals and tourists preparing for the festivities. </p>           
+            <p>Fun Fact: Dihua Street is affectionately known as "Taipei's Oldest Street," with some sections dating back to the Dutch colonial period in the 17th century. Walking through it is like stepping back in time, offering a glimpse into Taipei's rich past. </p>
+
+        <li>★ Ningxia Night Market<br><img src="https://i.ibb.co/4dkdBNL/Taipei-ningxia-night-market.png" alt="Taipei-ningxia-night-market" border="0"></li>
+
+            <p>6:00 PM to 8:00 PM</p>
+            <p>13 mins walk</p>
+            <p>Dishes to try: Oyster omelets, fried taro balls, stinky tofu (~NT$200–300 per person). ($15 CAD)</p>
+
+         </ul>
+    
+        <div id="day15">
+            <div class="day-header">Day 15: Taipei LAST DAY & NIGHT (Part 3)</div>
+            <ul class="place-list">
+
+        <li>★ Yong He Soy Milk King<br><img src="https://i.ibb.co/4MJnLTW/Taipei-yong-he-soy-milk.png" alt="Taipei-yong-he-soy-milk" border="0"></li>
+
+                <p>8:00 AM to 9:00 AM</p>
+                <p>Close to MRT Dingxi Station</p>
+                <p>Dishes to try: Freshly made soy milk and Chinese breakfast sandwiches (~NT$50–80 per person). ($10 CAD) </p>
+
+        <li>★ Jiufen Old Street<br><img src="https://i.ibb.co/wMjCPZD/Taipei-jiufen-old-street.png" alt="Taipei-jiufen-old-street" border="0"></li>
+
+                <p>9:00 AM to 1:30 PM</p>
+                <p>How: MRT to Ruifang Station [Blue Line], then bus to Jiufen (~NT$50 MRT + NT$20 bus). ($5 CAD)</p>
+                <p>Explore Jiufen’s winding streets and iconic views.
+                <p>Recommended Foods: Taro balls, peanut ice cream rolls, and fish ball soup (~NT$150–300 per person). ($15 CAD)</p>
+                <p>Jiufen Old Street, located in the Ruifang District of New Taipei City, is a charming, historic mountain town known for its narrow alleys, traditional teahouses, and street food stalls. Once a gold mining town, it now attracts visitors for its nostalgic atmosphere and stunning views of the Pacific Ocean.</p>
+                <p>Fun Fact: Jiufen is said to have inspired the setting of Studio Ghibli’s Spirited Away, making it a dream destination for anime fans and nostalgia lovers alike!</p>
+
+        <li>★ Return to Taipei</li>
+
+                <p>2:00 PM to 4:30 PM</p>
+                <p>(~NT$70 MRT + bus) ($5 CAD)</p>
+
+        <li>★ Lungshang Temple<br><img src="https://i.ibb.co/G3hJVLP/Taipei-lungshang-temple.png" alt="Taipei-lungshang-temple" border="0"></li>
+
+                <p>6:00 PM to 7:30 PM</p>
+                <p>A historic and spiritual landmark </p>
+                <p>How: MRT to Longshan Temple Station [Blue Line] (~NT$20 MRT) ($1 CAD)</p>
+                <p>Lungshan Temple, located in Taipei's Wanhua District, was built in 1738 and is one of Taiwan’s oldest and most famous temples. Dedicated to Guanyin, the Goddess of Mercy, it blends Buddhism, Taoism, and Chinese folk religion. Despite damage from earthquakes, fires, and even World War II bombings, the temple has been lovingly restored by the community.</p>
+                <p>Fun Fact: The temple’s dragon and phoenix roof decorations are said to bring prosperity—so even the roof is rooting for you to succeed!</p>
+
+        <li>★ Modern Toilet Restaurant<br><img src="https://i.ibb.co/SKJWMLw/Taipei-modern-toilet-restaurant.png" alt="Taipei-modern-toilet-restaurant" border="0"></li>
+
+                <p>7:30 PM to 9:00 PM</p>
+                <p>Dinner at Modern Toilet Restaurant (themed dining) or revisit Ximending for additional street food.</p>
+            </ul>
+
+    <div id="day16">
+        <div class="day-header">Day 16: GOODBYE TAIPEI!</div>
+        <ul class="place-list">
+
+        <P>6:00 AM - 6:30 AM: Check out of the hotel </P>
+        <P>6:30 AM - 7:30 AM: Travel to Taoyuan International Airport.</P>
+        <p>How: Take the MRT Airport Express from Taipei Main Station (~NT$150).
+        <p>9:00 AM: Flight out of Taipei.</P>
+
+        </ul>
+        
+        </div>
+    </div>
+
+    <footer>
+        © 2024 Ming, Uncle Paul, Mom's Asia Planner | Your Journey Awaits
+    </footer>
+
+    <script>
+        const headers = document.querySelectorAll('.day-header');
+        headers.forEach(header => {
+            header.addEventListener('click', () => {
+                const placeList = header.nextElementSibling;
+                placeList.style.display = placeList.style.display === 'none' || placeList.style.display === '' ? 'block' : 'none';
+            });
+        });
+    
+    function toggleMenu() {
+    var menu = document.getElementById('menu');
+    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+}
+   </script>
+
+</body>
+
+</html>
